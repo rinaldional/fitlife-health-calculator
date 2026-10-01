@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FitLife Health Calculator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page-shell">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">FitLife • Health Calculator</p>
+        <h1>Pantau kondisi tubuh secara cepat dan sederhana.</h1>
+        <p class="subtitle">Masukkan data dasar untuk menghitung BMI, kategori tubuh, berat badan ideal, dan estimasi kebutuhan kalori harian.</p>
+      </div>
+      <div class="hero-card" aria-hidden="true">
+        <span class="pulse"></span>
+        <strong>Wellness Score</strong>
+        <small>Simple • Fast • Personal</small>
+      </div>
+    </section>
+
+    <section class="calculator-grid">
+      <form id="healthForm" class="panel form-panel">
+        <h2>Data Pengguna</h2>
+
+        <label for="gender">Jenis Kelamin</label>
+        <select id="gender" required>
+          <option value="male">Laki-laki</option>
+          <option value="female">Perempuan</option>
+        </select>
+
+        <label for="age">Usia</label>
+        <input id="age" type="number" min="10" max="100" placeholder="Contoh: 25" required />
+
+        <label for="weight">Berat Badan (kg)</label>
+        <input id="weight" type="number" min="20" max="250" step="0.1" placeholder="Contoh: 60" required />
+
+        <label for="height">Tinggi Badan (cm)</label>
+        <input id="height" type="number" min="100" max="230" step="0.1" placeholder="Contoh: 165" required />
+
+        <label for="activity">Aktivitas Harian</label>
+        <select id="activity">
+          <option value="1.2">Rendah / jarang olahraga</option>
+          <option value="1.375" selected>Ringan / 1–3x olahraga per minggu</option>
+          <option value="1.55">Sedang / 3–5x olahraga per minggu</option>
+          <option value="1.725">Tinggi / aktif hampir setiap hari</option>
+        </select>
+
+        <button type="submit">Hitung Sekarang</button>
+        <button type="reset" class="secondary">Reset</button>
+      </form>
+
+      <section class="panel result-panel" aria-live="polite">
+        <div class="result-header">
+          <p class="eyebrow">Hasil Kalkulasi</p>
+          <h2 id="categoryText">Belum dihitung</h2>
+        </div>
+
+        <div class="result-cards">
+          <article>
+            <span>BMI</span>
+            <strong id="bmiValue">-</strong>
+          </article>
+          <article>
+            <span>Berat Ideal</span>
+            <strong id="idealWeight">-</strong>
+          </article>
+          <article>
+            <span>Kalori Harian</span>
+            <strong id="calorieValue">-</strong>
+          </article>
+        </div>
+
+        <div class="bmi-scale">
+          <div class="scale-track">
+            <span></span><span></span><span></span><span></span>
+            <i id="bmiMarker"></i>
+          </div>
+          <div class="scale-labels">
+            <small>Underweight</small>
+            <small>Normal</small>
+            <small>Overweight</small>
+            <small>Obese</small>
+          </div>
+        </div>
+
+        <p id="insight" class="insight">Isi form di sebelah kiri untuk melihat hasil perhitungan kesehatan dasar.</p>
+      </section>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
